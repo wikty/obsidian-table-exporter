@@ -1,24 +1,36 @@
 # Obsidian Table Exporter
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+[![Release](https://img.shields.io/github/v/release/wikty/obsidian-table-exporter?label=release)](https://github.com/wikty/obsidian-table-exporter/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/wikty/obsidian-table-exporter/ci.yml?branch=main&label=ci)](https://github.com/wikty/obsidian-table-exporter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/wikty/obsidian-table-exporter)](LICENSE)
+
 Export rendered Markdown tables in Obsidian to `PNG`, `CSV`, `Excel (.xlsx)`, and `PDF`.
 
-`Obsidian Table Exporter` is built for the common Obsidian pain point you described: a table looks right in reading view, but exporting it as a long, shareable artifact is awkward. The plugin works from the rendered table in the active note, so image and PDF exports preserve the visible table layout much better than generic Markdown-to-PDF flows.
+`Obsidian Table Exporter` is for the moment when a table already looks right in Obsidian, but getting it out into a clean, reusable format is still awkward. It works from the rendered table in the active note, so image and PDF exports stay much closer to what you actually see in reading view.
 
-## At a glance
+## Contents
 
-If your table already looks right inside Obsidian, this plugin helps you get it out in a format you can actually reuse:
+- [Why people use it](#why-people-use-it)
+- [Preview](#preview)
+- [Quick start](#quick-start)
+- [Features](#features)
+- [Installation](#installation)
+- [Development](#development)
+- [Troubleshooting](#troubleshooting)
+- [Limitations](#limitations)
 
-- `PNG` for chat threads, docs, and slides
-- `PDF` for paginated review and sharing
-- `CSV` / `Excel` for sorting, filtering, and handoff
+## Why people use it
 
-### Long table exported as PNG
+- Turn a long rendered table into a clean image without stitching screenshots
+- Export table data to `CSV` or `Excel` without rebuilding it by hand
+- Share a paginated `PDF` without relying on the default print flow
+- Prefer the table you just hovered or clicked when a note contains several tables
 
-Good for status tables, research logs, and anything that is too long to screenshot comfortably.
+## Preview
 
-![Long planning table exported from Obsidian](docs/assets/long-planning-table.png)
-
-### Wider table exported as PDF
+### Wide table exported as PDF
 
 Useful when the table is better reviewed as a document than as a pasted image.
 
@@ -26,19 +38,18 @@ Useful when the table is better reviewed as a document than as a pasted image.
 
 ### Mixed-language content
 
-The exporter is also meant to stay readable when a table mixes English and Chinese content.
+The exporter is designed to stay readable when a table mixes English and Chinese content.
 
 ![Mixed-language table export](docs/assets/mixed-language-table.png)
 
-## Why it exists
+<details>
+<summary>Long PNG export preview</summary>
 
-Obsidian is great at rendering Markdown tables, but it is much less convenient when you want to:
+Long status tables and research logs are the cases where manual screenshots usually become painful.
 
-- turn a long rendered table into a clean image
-- keep a table's data editable in spreadsheets
-- share a paginated PDF without fighting the print pipeline
+![Long planning table exported from Obsidian](docs/assets/long-planning-table.png)
 
-This plugin focuses on the rendered table that already looks right in reading view, then gives you export paths that match real workflows.
+</details>
 
 ## Quick start
 
@@ -62,27 +73,12 @@ This plugin focuses on the rendered table that already looks right in reading vi
 - Prefer the table you most recently hovered or clicked
 - Save exports directly into a configurable folder inside the vault
 
-## Current behavior
-
-- `PNG` and `PDF` exports are generated from the rendered table DOM for better visual fidelity.
-- `CSV` and `XLSX` exports are generated from extracted cell text.
-- If a note contains multiple tables, the plugin will try to use the last interacted table first, then fall back to a picker.
-
 ## Best use cases
 
 - Product specs, research notes, and comparison grids you want to share as images
 - Markdown tables that need to move into `Excel` or `Google Sheets`
 - Long tables that break under Obsidian's normal print-to-PDF flow
 - Notes with multiple tables where you want the export command to prefer the one you just touched
-
-## Output examples
-
-Typical workflows this plugin is designed for:
-
-- a long project table that needs to become a single clean image
-- a wider handoff table that needs to become a PDF
-- a structured Markdown table that needs to move into spreadsheet tooling
-- a mixed-language note that should remain readable after export
 
 ## Commands
 
@@ -118,7 +114,9 @@ Typical workflows this plugin is designed for:
 - `After export`: optionally reveal the saved file in Finder or open it immediately.
 - `Copy PNG to clipboard`: available for PNG exports and also exposed as a dedicated command.
 
-## Installation for local use
+## Installation
+
+### Local install
 
 1. Build the plugin:
 
@@ -145,19 +143,9 @@ Target folder:
 - Reload community plugins if needed
 - Enable `Table Exporter`
 
-## Packaging a release
+### Release package
 
-Use the built-in release scripts:
-
-```bash
-npm run release:check
-npm run package
-```
-
-That creates:
-
-- `dist/table-exporter-<version>/`
-- `dist/table-exporter-<version>.zip`
+Prebuilt release assets are available on the [GitHub Releases page](https://github.com/wikty/obsidian-table-exporter/releases).
 
 ## Development
 
@@ -172,6 +160,8 @@ Other checks:
 npm run check
 npm test
 npm run build
+npm run release:check
+npm run package
 ```
 
 Project maintenance docs:
@@ -218,11 +208,12 @@ Project maintenance docs:
 - Better handling for nested Markdown inside cells
 - Selectable-text PDF generation
 
-## License
-
-MIT
-
 ## Links
 
 - Repository: [github.com/wikty/obsidian-table-exporter](https://github.com/wikty/obsidian-table-exporter)
 - Issues: [github.com/wikty/obsidian-table-exporter/issues](https://github.com/wikty/obsidian-table-exporter/issues)
+- Releases: [github.com/wikty/obsidian-table-exporter/releases](https://github.com/wikty/obsidian-table-exporter/releases)
+
+## License
+
+MIT
