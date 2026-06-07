@@ -4,6 +4,32 @@ Export rendered Markdown tables in Obsidian to `PNG`, `CSV`, `Excel (.xlsx)`, an
 
 `Obsidian Table Exporter` is built for the common Obsidian pain point you described: a table looks right in reading view, but exporting it as a long, shareable artifact is awkward. The plugin works from the rendered table in the active note, so image and PDF exports preserve the visible table layout much better than generic Markdown-to-PDF flows.
 
+## At a glance
+
+If your table already looks right inside Obsidian, this plugin helps you get it out in a format you can actually reuse:
+
+- `PNG` for chat threads, docs, and slides
+- `PDF` for paginated review and sharing
+- `CSV` / `Excel` for sorting, filtering, and handoff
+
+### Long table exported as PNG
+
+Good for status tables, research logs, and anything that is too long to screenshot comfortably.
+
+![Long planning table exported from Obsidian](docs/assets/long-planning-table.png)
+
+### Wider table exported as PDF
+
+Useful when the table is better reviewed as a document than as a pasted image.
+
+![Wide operational table exported as PDF](docs/assets/wide-operational-table-pdf-preview.png)
+
+### Mixed-language content
+
+The exporter is also meant to stay readable when a table mixes English and Chinese content.
+
+![Mixed-language table export](docs/assets/mixed-language-table.png)
+
 ## Why it exists
 
 Obsidian is great at rendering Markdown tables, but it is much less convenient when you want to:
@@ -48,6 +74,15 @@ This plugin focuses on the rendered table that already looks right in reading vi
 - Markdown tables that need to move into `Excel` or `Google Sheets`
 - Long tables that break under Obsidian's normal print-to-PDF flow
 - Notes with multiple tables where you want the export command to prefer the one you just touched
+
+## Output examples
+
+Typical workflows this plugin is designed for:
+
+- a long project table that needs to become a single clean image
+- a wider handoff table that needs to become a PDF
+- a structured Markdown table that needs to move into spreadsheet tooling
+- a mixed-language note that should remain readable after export
 
 ## Commands
 
