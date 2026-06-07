@@ -1,0 +1,66 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="640" fill="#F5F1E8"/>
+  <rect x="32" y="32" width="1216" height="576" rx="28" fill="url(#bg)" stroke="#1F2937" stroke-width="2"/>
+
+  <rect x="72" y="78" width="146" height="34" rx="17" fill="#111827"/>
+  <text x="145" y="100" text-anchor="middle" font-family="Helvetica" font-size="16" font-weight="700" fill="#F8FAFC">Obsidian Plugin</text>
+
+  <text x="72" y="186" font-family="Helvetica" font-size="64" font-weight="800" fill="#111827">Obsidian Table Exporter</text>
+  <text x="72" y="236" font-family="Helvetica" font-size="26" font-weight="500" fill="#334155">Export rendered Markdown tables to PNG, CSV, Excel, and PDF.</text>
+  <text x="72" y="278" font-family="Helvetica" font-size="22" font-weight="400" fill="#475569">Built for long tables, spreadsheet handoff, and cleaner sharing outside the vault.</text>
+
+  <rect x="72" y="332" width="96" height="38" rx="19" fill="#DDEAFE"/>
+  <text x="120" y="357" text-anchor="middle" font-family="Helvetica" font-size="18" font-weight="700" fill="#1D4ED8">PNG</text>
+  <rect x="182" y="332" width="96" height="38" rx="19" fill="#DCFCE7"/>
+  <text x="230" y="357" text-anchor="middle" font-family="Helvetica" font-size="18" font-weight="700" fill="#15803D">CSV</text>
+  <rect x="292" y="332" width="106" height="38" rx="19" fill="#FDE68A"/>
+  <text x="345" y="357" text-anchor="middle" font-family="Helvetica" font-size="18" font-weight="700" fill="#92400E">Excel</text>
+  <rect x="412" y="332" width="94" height="38" rx="19" fill="#F3E8FF"/>
+  <text x="459" y="357" text-anchor="middle" font-family="Helvetica" font-size="18" font-weight="700" fill="#7E22CE">PDF</text>
+
+  <text x="72" y="445" font-family="Helvetica" font-size="18" font-weight="700" fill="#111827">Typical use cases</text>
+  <circle cx="78" cy="478" r="4" fill="#111827"/>
+  <text x="94" y="484" font-family="Helvetica" font-size="20" font-weight="400" fill="#334155">Long tables that are painful to screenshot</text>
+  <circle cx="78" cy="516" r="4" fill="#111827"/>
+  <text x="94" y="522" font-family="Helvetica" font-size="20" font-weight="400" fill="#334155">PDF output that should break on rows, not random pixels</text>
+  <circle cx="78" cy="554" r="4" fill="#111827"/>
+  <text x="94" y="560" font-family="Helvetica" font-size="20" font-weight="400" fill="#334155">Markdown tables that still need spreadsheet handoff</text>
+
+  <g transform="translate(790 112)">
+    <rect width="398" height="392" rx="24" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="0" y="0" width="398" height="66" rx="24" fill="#E2E8F0"/>
+    <line x1="110" y1="0" x2="110" y2="392" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="252" y1="0" x2="252" y2="392" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="0" y1="66" x2="398" y2="66" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="0" y1="152" x2="398" y2="152" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="0" y1="240" x2="398" y2="240" stroke="#CBD5E1" stroke-width="2"/>
+    <line x1="0" y1="320" x2="398" y2="320" stroke="#CBD5E1" stroke-width="2"/>
+
+    <text x="30" y="43" font-family="Helvetica" font-size="20" font-weight="800" fill="#111827">Week</text>
+    <text x="132" y="43" font-family="Helvetica" font-size="20" font-weight="800" fill="#111827">Owner</text>
+    <text x="274" y="43" font-family="Helvetica" font-size="20" font-weight="800" fill="#111827">Export</text>
+
+    <text x="30" y="110" font-family="Helvetica" font-size="18" font-weight="600" fill="#1F2937">2026-W05</text>
+    <text x="132" y="110" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">Shaw</text>
+    <text x="274" y="110" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">PNG</text>
+
+    <text x="30" y="198" font-family="Helvetica" font-size="18" font-weight="600" fill="#1F2937">2026-W12</text>
+    <text x="132" y="198" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">Ops</text>
+    <text x="274" y="198" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">PDF</text>
+
+    <text x="30" y="286" font-family="Helvetica" font-size="18" font-weight="600" fill="#1F2937">2026-W18</text>
+    <text x="132" y="286" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">Research</text>
+    <text x="274" y="286" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">CSV</text>
+
+    <text x="30" y="358" font-family="Helvetica" font-size="18" font-weight="600" fill="#1F2937">2026-W24</text>
+    <text x="132" y="358" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">Data team</text>
+    <text x="274" y="358" font-family="Helvetica" font-size="18" font-weight="500" fill="#334155">Excel</text>
+  </g>
+
+  <defs>
+    <linearGradient id="bg" x1="84" y1="72" x2="1214" y2="586" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#EAF2FF"/>
+    </linearGradient>
+  </defs>
+</svg>

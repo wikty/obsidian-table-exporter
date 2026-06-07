@@ -2,9 +2,9 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[![Release](https://img.shields.io/github/v/release/wikty/obsidian-table-exporter?label=release)](https://github.com/wikty/obsidian-table-exporter/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/wikty/obsidian-table-exporter/ci.yml?branch=main&label=ci)](https://github.com/wikty/obsidian-table-exporter/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/wikty/obsidian-table-exporter)](LICENSE)
+[![Release](https://img.shields.io/badge/release-v0.1.0-2ea44f)](https://github.com/wikty/obsidian-table-exporter/releases/tag/v0.1.0)
+[![Platform](https://img.shields.io/badge/platform-Obsidian-7c3aed)](https://obsidian.md/)
+[![License](https://img.shields.io/badge/license-MIT-0f172a)](LICENSE)
 
 Export rendered Markdown tables in Obsidian to `PNG`, `CSV`, `Excel (.xlsx)`, and `PDF`.
 
