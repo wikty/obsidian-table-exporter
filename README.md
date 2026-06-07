@@ -171,7 +171,6 @@ Project maintenance docs:
 - `CODE_OF_CONDUCT.md`
 - `RELEASE_CHECKLIST.md`
 - `SECURITY.md`
-- `docs/table-exporter-impl/`
 
 ## Troubleshooting
 
