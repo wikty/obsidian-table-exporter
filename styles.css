@@ -1,0 +1,28 @@
+.table-exporter-modal .table-exporter-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.table-exporter-modal .table-exporter-item {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.table-exporter-modal .table-exporter-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.table-exporter-modal .table-exporter-meta {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  margin-top: 4px;
+}
+
+.table-exporter-modal .table-exporter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [0.1.0] - 2026-06-05
+
+### Added
+
+- Initial Obsidian plugin release for exporting rendered Markdown tables.
+- Export formats: `PNG`, `CSV`, `Excel (.xlsx)`, and `PDF`.
+- Automatic table discovery in the active Markdown note.
+- Preference for the table most recently hovered or clicked.
+- Per-export options dialog for `PNG` and `PDF`.
+- Clean visual export style to reduce code-font and highlight artifacts.
+- Post-export desktop actions: reveal in Finder or open the exported file.
+- `PNG` clipboard export support and a dedicated command for it.
+- Configurable export folder, image scale, image background, CSV delimiter, PDF page size, PDF orientation, and PDF margin.
+
+### Fixed
+
+- Prevented blank `PNG` and `PDF` exports caused by rendering cloned tables outside the visible render region.
+- Improved PDF pagination flow for long rendered tables.
+
+### Notes
+
+- `PDF` export is currently image-based, so text in the resulting file is not selectable yet.

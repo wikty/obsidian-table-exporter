@@ -1,0 +1,10 @@
+{
+  "id": "table-exporter",
+  "name": "Table Exporter",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Export rendered Markdown tables in Obsidian to PNG, CSV, Excel, and PDF.",
+  "author": "shaw",
+  "authorUrl": "https://github.com/wikty",
+  "isDesktopOnly": false
+}
