@@ -171,6 +171,7 @@ npm run package
 - `CODE_OF_CONDUCT.md`
 - `RELEASE_CHECKLIST.md`
 - `SECURITY.md`
+- `docs/table-exporter-impl/`
 
 ## 故障排查
 
