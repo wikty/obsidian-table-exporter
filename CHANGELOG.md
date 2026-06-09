@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.2] - 2026-06-09
+
+### Changed
+
+- Switched PDF generation from `jsPDF` to `pdf-lib` to avoid Community Directory review warnings about dynamic script element creation in bundled code.
+
+### Notes
+
+- This release keeps the same user-facing PDF export behavior while reducing review friction for Community Directory submission.
+
 ## [0.1.1] - 2026-06-09
 
 ### Fixed

@@ -1,6 +1,6 @@
 {
   "name": "obsidian-table-exporter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Export rendered Markdown tables to PNG, CSV, Excel, and PDF.",
   "homepage": "https://github.com/wikty/obsidian-table-exporter",
   "repository": {
@@ -44,8 +44,8 @@
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
-    "jspdf": "^4.2.1",
     "papaparse": "^5.5.3",
+    "pdf-lib": "^1.17.1",
     "write-excel-file": "^4.0.7"
   }
 }

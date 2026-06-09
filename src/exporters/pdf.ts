@@ -1,4 +1,4 @@
-import { jsPDF } from "jspdf";
+import { PDFDocument } from "pdf-lib";
 import type { ExportArtifact, ExportRequest } from "../types";
 import { buildBaseFileName, createArtifact } from "../utils";
 import {
@@ -20,26 +20,28 @@ export async function exportTableAsPdf(request: ExportRequest): Promise<ExportAr
   const margin = request.options.pdfMargin;
   const usableWidth = pageWidth - margin * 2;
   const usableHeight = pageHeight - margin * 2;
-  const pdf = new jsPDF({
-    format: request.options.pdfPageSize,
-    orientation: request.options.pdfOrientation,
-    unit: "pt",
-    compress: true
-  });
+  const pdf = await PDFDocument.create();
 
   const pageSlices = await buildRowAwareSlices(request, usableWidth, usableHeight);
 
-  pageSlices.forEach((slice, pageIndex) => {
-    if (pageIndex > 0) {
-      pdf.addPage();
-    }
-
+  for (const slice of pageSlices) {
     const imageData = slice.toDataURL("image/png");
+    const embeddedImage = await pdf.embedPng(imageData);
     const renderedHeight = (slice.height * usableWidth) / slice.width;
-    pdf.addImage(imageData, "PNG", margin, margin, usableWidth, renderedHeight, undefined, "FAST");
-  });
+    const page = pdf.addPage([pageWidth, pageHeight]);
+    page.drawImage(embeddedImage, {
+      x: margin,
+      y: pageHeight - margin - renderedHeight,
+      width: usableWidth,
+      height: renderedHeight
+    });
+  }
 
-  const arrayBuffer = pdf.output("arraybuffer");
+  const pdfBytes = await pdf.save();
+  const arrayBuffer = pdfBytes.buffer.slice(
+    pdfBytes.byteOffset,
+    pdfBytes.byteOffset + pdfBytes.byteLength
+  ) as ArrayBuffer;
   const fileName = `${buildBaseFileName(request.table, request.settings)}.pdf`;
   return createArtifact(fileName, "application/pdf", arrayBuffer);
 }
