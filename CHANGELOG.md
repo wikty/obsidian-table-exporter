@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.4] - 2026-06-09
+
+### Fixed
+
+- Moved temporary render-surface CSS into the plugin `styles.css` file to avoid Community Directory review errors about dynamically creating and attaching `style` elements.
+- Renamed the settings section heading to a generic label instead of repeating the plugin name.
+
+### Notes
+
+- This release is focused on source review compliance and does not change the plugin's feature set.
+
 ## [0.1.3] - 2026-06-09
 
 ### Fixed

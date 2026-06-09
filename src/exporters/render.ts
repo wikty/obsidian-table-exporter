@@ -78,7 +78,6 @@ async function renderDomTableToCanvas(
     "--table-exporter-render-width": `${Math.ceil(tableElement.getBoundingClientRect().width)}px`
   });
   wrapper.setAttribute("aria-hidden", "true");
-  wrapper.appendChild(createRenderStyleElement());
 
   const clonedTable = tableElement.cloneNode(true) as HTMLTableElement;
   clonedTable.className = `${clonedTable.className} ${RENDER_TABLE_CLASS}`.trim();
@@ -439,70 +438,6 @@ function copyStyles(source: HTMLElement, target: HTMLElement): void {
 
 function applyCleanDomStyles(table: HTMLTableElement): void {
   table.classList.add(RENDER_CLEAN_CLASS);
-}
-
-function createRenderStyleElement(): HTMLStyleElement {
-  const style = document.createElement("style");
-  style.textContent = `
-    .${RENDER_WRAPPER_CLASS} {
-      position: absolute;
-      left: -100000px;
-      top: 0;
-      padding: 24px;
-      background: var(--table-exporter-render-bg);
-      width: max-content;
-      max-width: none;
-      pointer-events: none;
-      z-index: -1;
-      overflow: visible;
-    }
-
-    .${RENDER_TABLE_CLASS} {
-      max-width: none;
-      width: var(--table-exporter-render-width);
-      margin: 0;
-    }
-
-    .${RENDER_CLEAN_CLASS} {
-      background: var(--table-exporter-render-bg);
-      border-collapse: collapse;
-      font-family: ${DEFAULT_FONT_FAMILY};
-      color: ${TEXT_COLOR};
-    }
-
-    .${RENDER_CLEAN_CLASS} th,
-    .${RENDER_CLEAN_CLASS} td {
-      font-family: inherit;
-      font-size: ${FONT_SIZE}px;
-      line-height: ${LINE_HEIGHT};
-      vertical-align: top;
-      word-break: break-word;
-      white-space: pre-wrap;
-      text-align: left;
-      background: ${CELL_BACKGROUND};
-      color: ${TEXT_COLOR};
-      border-color: ${BORDER_COLOR};
-      box-shadow: none;
-    }
-
-    .${RENDER_CLEAN_CLASS} th {
-      font-weight: 700;
-      background: ${HEADER_BACKGROUND};
-    }
-
-    .${RENDER_CLEAN_CLASS} code,
-    .${RENDER_CLEAN_CLASS} mark {
-      font-family: inherit;
-      font-size: inherit;
-      background: transparent;
-      color: inherit;
-      padding: 0;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-  `;
-  return style;
 }
 
 function isCanvasLikelyBlank(canvas: HTMLCanvasElement, backgroundColor: string): boolean {
