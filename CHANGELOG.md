@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.1] - 2026-06-09
+
+### Fixed
+
+- Updated the plugin description metadata to comply with Obsidian Community Directory review rules by removing the word `Obsidian` from the manifest description.
+
+### Notes
+
+- This release exists to satisfy Community Directory submission requirements without changing the plugin's runtime behavior.
+
 ## [0.1.0] - 2026-06-05
 
 ### Added
