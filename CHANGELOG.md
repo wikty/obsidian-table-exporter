@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.3] - 2026-06-09
+
+### Fixed
+
+- Reworked DOM render styling to avoid direct static style assignment patterns flagged by Obsidian Community Directory review.
+- Updated the settings tab heading to use `Setting(...).setHeading()` instead of creating heading elements directly.
+
+### Notes
+
+- This release is focused on source review compliance and does not change the user-facing feature set.
+
 ## [0.1.2] - 2026-06-09
 
 ### Changed

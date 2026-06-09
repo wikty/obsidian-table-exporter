@@ -15,6 +15,9 @@ const BORDER_COLOR = "#d0d7de";
 const TEXT_COLOR = "#1f2328";
 const FONT_SIZE = 16;
 const LINE_HEIGHT = 1.4;
+const RENDER_WRAPPER_CLASS = "table-exporter-render-wrapper";
+const RENDER_TABLE_CLASS = "table-exporter-render-table";
+const RENDER_CLEAN_CLASS = "table-exporter-render-clean";
 
 interface RenderOptions {
   scale: number;
@@ -69,26 +72,20 @@ async function renderDomTableToCanvas(
   options: RenderOptions
 ): Promise<HTMLCanvasElement> {
   const wrapper = document.createElement("div");
-  wrapper.style.position = "absolute";
-  wrapper.style.left = "-100000px";
-  wrapper.style.top = "0";
-  wrapper.style.padding = "24px";
-  wrapper.style.background = options.backgroundColor;
-  wrapper.style.width = "max-content";
-  wrapper.style.maxWidth = "none";
-  wrapper.style.pointerEvents = "none";
-  wrapper.style.zIndex = "-1";
-  wrapper.style.overflow = "visible";
+  wrapper.className = RENDER_WRAPPER_CLASS;
+  wrapper.setCssProps({
+    "--table-exporter-render-bg": options.backgroundColor,
+    "--table-exporter-render-width": `${Math.ceil(tableElement.getBoundingClientRect().width)}px`
+  });
   wrapper.setAttribute("aria-hidden", "true");
+  wrapper.appendChild(createRenderStyleElement());
 
   const clonedTable = tableElement.cloneNode(true) as HTMLTableElement;
-  clonedTable.style.maxWidth = "none";
-  clonedTable.style.width = `${Math.ceil(tableElement.getBoundingClientRect().width)}px`;
-  clonedTable.style.margin = "0";
+  clonedTable.className = `${clonedTable.className} ${RENDER_TABLE_CLASS}`.trim();
 
   syncComputedStyles(tableElement, clonedTable);
   if (options.visualStyle === "clean") {
-    applyCleanDomStyles(clonedTable, options.backgroundColor);
+    applyCleanDomStyles(clonedTable);
   }
 
   wrapper.appendChild(clonedTable);
@@ -440,42 +437,72 @@ function copyStyles(source: HTMLElement, target: HTMLElement): void {
   }
 }
 
-function applyCleanDomStyles(table: HTMLTableElement, backgroundColor: string): void {
-  table.style.background = backgroundColor;
-  table.style.borderCollapse = "collapse";
-  table.style.fontFamily = DEFAULT_FONT_FAMILY;
-  table.style.color = TEXT_COLOR;
+function applyCleanDomStyles(table: HTMLTableElement): void {
+  table.classList.add(RENDER_CLEAN_CLASS);
+}
 
-  const cells = table.querySelectorAll<HTMLElement>("th, td");
-  cells.forEach((cell) => {
-    cell.style.fontFamily = "inherit";
-    cell.style.fontSize = `${FONT_SIZE}px`;
-    cell.style.lineHeight = `${LINE_HEIGHT}`;
-    cell.style.verticalAlign = "top";
-    cell.style.wordBreak = "break-word";
-    cell.style.whiteSpace = "pre-wrap";
-    cell.style.textAlign = "left";
-    cell.style.background = CELL_BACKGROUND;
-    cell.style.color = TEXT_COLOR;
-    cell.style.borderColor = BORDER_COLOR;
-    cell.style.boxShadow = "none";
-  });
+function createRenderStyleElement(): HTMLStyleElement {
+  const style = document.createElement("style");
+  style.textContent = `
+    .${RENDER_WRAPPER_CLASS} {
+      position: absolute;
+      left: -100000px;
+      top: 0;
+      padding: 24px;
+      background: var(--table-exporter-render-bg);
+      width: max-content;
+      max-width: none;
+      pointer-events: none;
+      z-index: -1;
+      overflow: visible;
+    }
 
-  table.querySelectorAll<HTMLElement>("th").forEach((cell) => {
-    cell.style.fontWeight = "700";
-    cell.style.background = HEADER_BACKGROUND;
-  });
+    .${RENDER_TABLE_CLASS} {
+      max-width: none;
+      width: var(--table-exporter-render-width);
+      margin: 0;
+    }
 
-  table.querySelectorAll<HTMLElement>("code, mark").forEach((element) => {
-    element.style.fontFamily = "inherit";
-    element.style.fontSize = "inherit";
-    element.style.background = "transparent";
-    element.style.color = "inherit";
-    element.style.padding = "0";
-    element.style.border = "none";
-    element.style.borderRadius = "0";
-    element.style.boxShadow = "none";
-  });
+    .${RENDER_CLEAN_CLASS} {
+      background: var(--table-exporter-render-bg);
+      border-collapse: collapse;
+      font-family: ${DEFAULT_FONT_FAMILY};
+      color: ${TEXT_COLOR};
+    }
+
+    .${RENDER_CLEAN_CLASS} th,
+    .${RENDER_CLEAN_CLASS} td {
+      font-family: inherit;
+      font-size: ${FONT_SIZE}px;
+      line-height: ${LINE_HEIGHT};
+      vertical-align: top;
+      word-break: break-word;
+      white-space: pre-wrap;
+      text-align: left;
+      background: ${CELL_BACKGROUND};
+      color: ${TEXT_COLOR};
+      border-color: ${BORDER_COLOR};
+      box-shadow: none;
+    }
+
+    .${RENDER_CLEAN_CLASS} th {
+      font-weight: 700;
+      background: ${HEADER_BACKGROUND};
+    }
+
+    .${RENDER_CLEAN_CLASS} code,
+    .${RENDER_CLEAN_CLASS} mark {
+      font-family: inherit;
+      font-size: inherit;
+      background: transparent;
+      color: inherit;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  `;
+  return style;
 }
 
 function isCanvasLikelyBlank(canvas: HTMLCanvasElement, backgroundColor: string): boolean {
