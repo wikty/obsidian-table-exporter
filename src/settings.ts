@@ -29,7 +29,7 @@ export class TableExporterSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    new Setting(containerEl).setName("Export settings").setHeading();
+    new Setting(containerEl).setName("Export").setHeading();
 
     new Setting(containerEl)
       .setName("Export folder")

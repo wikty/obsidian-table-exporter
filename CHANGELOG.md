@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is loosely based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.5] - 2026-06-09
+
+### Fixed
+
+- Renamed the settings heading from `Export settings` to `Export` to satisfy Community Directory source review guidance that discourages using `settings` in settings headings.
+
+### Notes
+
+- This release is focused on Community Directory source review compatibility and does not change the plugin's feature set.
+
 ## [0.1.4] - 2026-06-09
 
 ### Fixed
